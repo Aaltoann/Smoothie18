@@ -40,7 +40,7 @@ public class Main {
 
         get("/uusi", (req, res) -> {
             HashMap map = new HashMap<>();
-            //map.put("smoothiet", smoothieDao.findAll());
+            map.put("smoothiet", smoothieDao.findAll());
 
             return new ModelAndView(map, "uusi");
         }, new ThymeleafTemplateEngine());
@@ -51,7 +51,7 @@ public class Main {
 
             return new ModelAndView(map, "ainekset");
         }, new ThymeleafTemplateEngine());
-
+        
         get("/smoothiet/:id", (req, res) -> {
             HashMap map = new HashMap<>();
             map.put("smoothie", smoothieDao.findOne(Integer.parseInt(req.params("id"))));

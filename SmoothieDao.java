@@ -35,8 +35,9 @@ public class SmoothieDao implements Dao<Smoothie, Integer> {
 
         Integer id = rs.getInt("id");
         String nimi = rs.getString("nimi");
+        ArrayList ohje = (ArrayList) rs.getArray("ohje");
 
-        Smoothie s = new Smoothie(id, nimi);
+        Smoothie s = new Smoothie(id, nimi, ohje);
 
         rs.close();
         stmt.close();
@@ -56,8 +57,9 @@ public class SmoothieDao implements Dao<Smoothie, Integer> {
         while (rs.next()) {
             Integer id = rs.getInt("id");
             String nimi = rs.getString("nimi");
+            ArrayList ohje = (ArrayList) rs.getArray("ohje");
 
-            smoothiet.add(new Smoothie(id, nimi));
+            smoothiet.add(new Smoothie(id, nimi, ohje));
         }
 
         rs.close();
@@ -69,6 +71,8 @@ public class SmoothieDao implements Dao<Smoothie, Integer> {
 
     @Override
     public void delete(Integer key) throws SQLException {
+        
+
         // ei toteutettu
     }
 
